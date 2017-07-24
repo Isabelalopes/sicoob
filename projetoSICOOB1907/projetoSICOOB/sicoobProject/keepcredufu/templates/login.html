@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+
+
+<!-- define angular app -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+
+<meta content="text/html; charset=UTF-8" />
+<meta content="Login Page" name="description" />
+
+<link href="/static/img/favicon.ico" rel="icon" type="image/x-icon" />
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+
+<body style="background-color: #f0f0f5;">
+
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="login-panel panel panel-default" style="background-color: #ffffff; box-shadow: 6px 6px 6px #888888;">
+					<div class="panel-heading" style="background-color: #ffffff; border: 0px;">
+						<h3 class="panel-title" style="color: #0000bb; text-align: center; font-size: 28px;">
+							iKeep<font color="#00bb00">Cred</font><br /> <font color="#298076" size="4px">Creditril</font>
+						</h3>
+					</div>
+					<div class="panel-body">
+
+
+						<form autocomplete="off" method="post" action="login">
+							<fieldset>
+								<div class="form-group">
+									<input autofocus="autofocus" class="form-control" name="nomeusuario" oninvalid="BlankField(this)" placeholder="Usuário" required="" type="text" />
+								</div>
+								<div class="form-group">
+									<input class="form-control" name="senha" oninvalid="BlankField(this)" placeholder="Senha" required="" type="password" />
+								</div>
+								<a href="/ikeepcred/">
+								<button class="btn btn-primary" style="display: block; margin: 0 auto; color: #ffffff; font-size: 16px; width: 130px;" type="submit" onclick="entrar">Entrar</button>
+                                </a>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script>
+
+	static/imports/jquery-2.2.3/jquery-2.2.3.min.js
+		function BlankField(textbox) {
+			if (textbox.value == '') {
+				textbox.setCustomValidity('Campo obrigatório!');
+			} else {
+				textbox.setCustomValidity('');
+			}
+			return true;
+		}
+	</script>
+
+<script language="Javascript">
+function entrar()
+{
+<a href="/ikeepcred/">
+}
+</script>
+
+</body></html>
