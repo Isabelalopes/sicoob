@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container ng-scope" data-ng-controller="informacoesComunsController">
+<form name="informacoes_comuns" class="form-horizontal ng-dirty ng-valid-parse ng-pristine ng-invalid ng-invalid-required" autocomplete="off" data-ng-submit="geraFile()">
+	<h2>Informações Comuns</h2>
+			<hr style="border-top: 1px solid #ccc;">
+			<br>
+			<div class="form-group">
+				<label for="fileType">Selecione o tipo da declaração:</label>
+				<select class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" id="fileType" name="fileType"
+						oninvalid="BlankField(this);" data-ng-model="fileType" data-ng-options="value.id as value.name for value in fileTypes"
+						style="width:150px;" required>
+				<option value class selected="selected">Selecionar</option>
+				<option label="Normal" value="string:N">Normal</option>
+				<option label="Retificada" value="string:R">Retificada</option>
+				</select>
+			</div>
+			<div class="form-group ng-hide" data-ng-show="fileType == 'R'">
+				<label for="protocol">Informe o protocolo da declaração:</label>
+				<input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" id="protocol"
+				name="protocol" oninvalid="BlankField(this);" data-ng-model="protocol" style="width: 160px;">
+			</div>
+			<hr style="border-top: 1px solid #ccc;">
+			<br>
+			<div class="form-group">
+				<button data-ng-hide="loading == true" class="btn btn-primary">Gerar Arquivo</button>
+				<br>
+				<i class="fa fa-cog fa-spin fa-3x fa-fw ng-hide" data-ng-show="loading == true"></i>
+			</div>
+			<br>
+			<div>
+				<a href="ftp://creditril@127.0.0.1:8000/informacoes_comuns" target="_blank" class="fa fa-download">
+					&nbsp;&nbsp;Baixar arquivos
+				</a>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+	</form>
+</div>
+{% endblock %}
