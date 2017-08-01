@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+{% load static %}
 <!-- define angular app -->
 <html data-ng-app="ikeepcred" xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
@@ -44,7 +44,7 @@
 					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
 
-			<img height="29" src="img/ikeep_logo.jpg" style="margin-left: 10px; margin-top: 10px;  position: absolute;" width="29" />
+			<img height="29" src= "{% static 'img/ikeep_logo.jpg' %}" style="margin-left: 10px; margin-top: 10px;  position: absolute;" width="29" alt=""/>
 
 				<a href="" style="color: #0000bb; font-size: 23px;  margin-left: 43px; margin-top: 10px; position: absolute;">iKeep<font color="#00bb00">Cred</font>
 				</a>
@@ -123,11 +123,11 @@
 						<li sec:authorize="hasAnyRole('Administradores', 'Retaguarda')"><a href="#arquivos_des-if"><i class="fa fa-newspaper-o"></i>&nbsp;
 								Arquivos DES-IF - ISS</a>
 							<ul class="nav nav-second-level">
-								<li><a href="apuracao_mensal_issqn">&nbsp; Apuração
+								<li><a href="{% url 'apuracao_mensal_issqn' %}">&nbsp; Apuração
 										Mensal do ISSQN</a></li>
-								<li><a href="informacoes_comuns">&nbsp; Informações
+								<li><a href="{% url 'informacoes_comuns' %}">&nbsp; Informações
 										Comuns</a></li>
-								<li><a href="planocontacosif_list">&nbsp; Cadastro Plano de
+								<li><a href="{% url 'planocontacosif_list' %}">&nbsp; Cadastro Plano de
 										Conta</a></li>
 							</ul></li>
 					</ul>
@@ -138,12 +138,11 @@
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<br /> <img src="img/creditril_logo.jpg" /><br /> <br /> <br /> <br />
+					<br /> <img src="{% static 'img/creditril_logo.jpg' %}" /><br /> <br /> <br /> <br />
 				</div>
 				<!-- ngView: -->
                 <div data-ng-view class="ng-scope">
                     <meta charset="utf-8" class="ng-score">
-					<meta name="description" content="import_plano_contas page" class="ng-scope">
 					<meta name="author" content="JotaDev" class="ng-scope">
 
                     {% block content %}
