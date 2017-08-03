@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="container ng-scope" data-ng-controller="usuariosController">
+    <form name="usuarios_add" class="form-horizontal ng-invalid ng-invalid-required ng-valid-maxlength
+      ng-dirty ng-valid-parse" autocomplete="off" data-ng-submit="register()">
+      <h2>Cadastrar Usuário</h2>
+      <hr style="border-top: 1px solid #ccc;">
+      <br>
+
+      <form method="post">{% csrf_token %}
+        <div class="form-group">
+          <label class="control-label col-xs-1" for="username">Usuário: </label>
+          <div class="col-xs-5">
+            <input type="text" class="form-control ng-not-empty ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched"
+             oninvalid="BlankField(this)" id="username" name="username" upper-case placeholder="Nome" autofocus="autofocus">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-xs-1" for="password">Senha:</label>
+          <div class="col-xs-2">
+            <input type="password" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength"
+                   id="password" name="password" maxlength="12" oninvalid="BlankField(this);" placeholder="Senha" required>
+          </div>
+        </div>
+        <hr style="border-top: 1px solid #ccc;">
+        <div class="form-group">
+          <label class="control-label col-xs-1" for="tipo_usuario">Tipo de usuário:</label>
+          <div class="col-xs-2">
+            <select class="form-control ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched" name="tipo_usuario" id="tipo_usuario"
+            oninvalid="BlankField(this);" required>
+              <option value="" disabled selected>Selecionar</option>
+              <option value="administrador">Administrador</option>
+              <option value="usuario">Usuário</option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <a href="{% url 'listar_usuario' %}" class="col-xs-1">
+            <button type="button" class="btn btn-default">Voltar</button>
+          </a>
+          <div>
+            <button class="btn btn-primary" type="submit" name="action">Cadastrar</button>
+          </div>
+        </div>
+      </form>
+    </form>
+</div>
+{% endblock content %}

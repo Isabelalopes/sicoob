@@ -54,17 +54,16 @@
 
 
 			<ul class="nav navbar-top-links navbar-right">
-				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href=""> <i class="fa fa-user fa-fw"></i>
-						<i class="fa fa-caret-down"></i>
+				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href aria-expanded="false"> <i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i>
 				</a>
 
 					<ul class="dropdown-menu dropdown-user">
 						<!-- <li><a href="#"><i class="fa fa-user fa-fw"></i> User
 								Profile</a></li> -->
-						<li sec:authorize="hasRole('Administradores')"><a href="#usuarios_list"><i class="fa fa-shield fa-fw"></i> Admin</a></li>
+						<li sec:authorize="hasRole('Administradores')"><a href="{% url 'listar_usuario' %}"><i class="fa fa-shield fa-fw"></i> Admin</a></li>
 						<li class="divider"></li>
-						<li><form method="post" action="/logout">
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-out fa-fw"></i><input style="background: none; border: 0 none;" type="submit" value="Sair" />
+						<li><form method="post" action="/logout" class="ng-pristine ng-valid">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-out fa-fw"></i><input style="background: none; border: 0 none;" type="submit" value="Sair">
 							</form></li>
 					</ul></li>
 			</ul>
@@ -85,7 +84,7 @@
 						</li>
 						<li><a href=""><i class="fa fa-money"></i>&nbsp;
 								Folha de Pagamento</a></li>
-						<li><a href=""><i class="fa fa-credit-card"></i>&nbsp;
+						<li><a href="" class=""><i class="fa fa-credit-card"></i>&nbsp;
 								Seguro Prestamista</a>
 							<ul class="nav nav-second-level">
 								<li><a href="">&nbsp; Prestamistas</a></li>
@@ -177,9 +176,8 @@
 	<!-- Custom Theme JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7/js/sb-admin-2.min.js"></script>
 
-	<script src="angular/app.js"></script>
-	<script src="angular/service.js"></script>
-  	<script src="angular/controller.js"></script>
+	<script src="{% static 'angular/service.js' %}"></script>
+  	<script src="{% static 'angular/controller.js' %}"></script>
 
   </body>
 </html>
