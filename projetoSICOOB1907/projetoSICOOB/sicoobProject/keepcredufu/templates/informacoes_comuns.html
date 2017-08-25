@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
+<link href="{% static 'css/arquivo.css' %}" rel="stylesheet">
+
 <div class="container ng-scope" data-ng-controller="informacoesComunsController">
 <form name="informacoes_comuns" class="form-horizontal ng-dirty ng-valid-parse ng-pristine ng-invalid ng-invalid-required" autocomplete="off" data-ng-submit="geraFile()">
 	<h2>Informações Comuns</h2>
@@ -9,17 +11,15 @@
 			<div class="form-group">
 				<label for="fileType">Selecione o tipo da declaração:</label>
 				<select class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" id="fileType" name="fileType"
-						oninvalid="BlankField(this);" data-ng-model="fileType" data-ng-options="value.id as value.name for value in fileTypes"
-						style="width:150px;" required>
-				<option value class selected="selected">Selecionar</option>
-				<option label="Normal" value="string:N">Normal</option>
-				<option label="Retificada" value="string:R">Retificada</option>
-				</select>
+						oninvalid="BlankField(this);" data-ng-model="fileType" style="width:150px;" required>
+				<option label="Selecionar" selected="selected">Selecionar</option>
+				<option label="Normal" id="normal" value="normal">Normal</option>
+				<option label="Retificada" id="retificada" value="retificada" data-section="retificada">Retificada</option>
+				</select><br>
 			</div>
-			<div class="form-group ng-hide" data-ng-show="fileType == 'R'">
-				<label for="protocol">Informe o protocolo da declaração:</label>
-				<input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" id="protocol"
-				name="protocol" oninvalid="BlankField(this);" data-ng-model="protocol" style="width: 160px;">
+			<div style="display: none;" data-name="retificada" class="hide">
+				<label>Informe o protocolo da declaração:</label>
+				<input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" name="protocoloDeclaracao" oninvalid="BlankField(this);" data-ng-model="protocol" style="width: 160px;">
 			</div>
 			<hr style="border-top: 1px solid #ccc;">
 			<br>
@@ -41,4 +41,6 @@
 			<br>
 	</form>
 </div>
+
+<script src="{% static 'angular/selectedType.js' %}"></script>
 {% endblock %}
